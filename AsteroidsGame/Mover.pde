@@ -1,21 +1,21 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- All objects in this world that move must implemnt the Movalbe interface.
+
  */
 interface Movable {
   /*
     Return the x location of the Movable
    */
-  float getX();
+  float getX(){
+    return x;
+  }
+    
+  float getY(){
+  return y;
+  }
 
-  /*
-    Return the y location of the Movable
-   */
-  float getY();
-
-  /*
-    Return the direction of the Movable in degrees.
-   */
-  float getDirection();
+  
+  float getDirection(){
+  return (direction + " degrees");
+  }
 
   /*
    Return the speed of the Movable.
@@ -58,6 +58,7 @@ interface Movable {
    be able to collide with iteself.
    */
   boolean collidingWith(Movable object);
+  }
 }
 //END OF Movable Interface
 
@@ -67,7 +68,7 @@ interface Movable {
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
  Abstract base class Mover 
  */
-abstract class Mover {// implements Movable {
+abstract class Mover {implements Movable {
 
   protected float x, y;
   protected float speed;
@@ -98,7 +99,7 @@ abstract class Mover {// implements Movable {
   }
 
   /*
-    Most of your movalbe objects should follow this pattern.
+    Most of your movable objects should follow this pattern.
    */
   void update() {
     x = x + speed*(float)Math.cos(radians(direction));
@@ -126,4 +127,3 @@ abstract class Mover {// implements Movable {
   }
   
   //TODO: Part I: implement the methods of Moveable interface - delete this comment
-}
