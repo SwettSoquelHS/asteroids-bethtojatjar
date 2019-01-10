@@ -1,9 +1,9 @@
 //* * * * * * * * * * * * * * * * * * * * * * * 
 float x_pos, y_pos;
- 
+Star[] stars;
 Spaceship player1;
 //Asteroid[] asteroids;
-//Star[] starField;
+Star[] starField;
 
 
 /*
@@ -20,14 +20,21 @@ boolean SPACE_BAR;    //User is pressing space bar
  */
 public void setup() {
     size(1500, 1000);
-  x_pos = width/2;
-  y_pos = height/2;
+    background(0);
   
   //initialize your asteroid array and fill it
   
   //initialize ship
   
-  //initialize starfield
+   stars = new Star[100];
+   for(int i = 0; i < stars.length;i++){
+   
+    int x = (int)(width * Math.random());
+    int y = (int)(height * Math.random());
+    int r = (int)(4 * Math.random()) + 2;
+    stars[i] = new Star(x, y, r);
+    
+   }
 }
 
 
@@ -39,7 +46,9 @@ public void draw() {
   background(0);
   
   //Draw Starfield first 
-  //TODO: Part I
+  for(int i = 0; i < stars.length;i++){
+    stars[i].show();
+  }
   
   //Check bullet collisions
   //TODO: Part III or IV - for not just leave this comment

@@ -4,11 +4,22 @@
     You may add additional methods to this class, for example "rotate" and "accelerate" 
     might be useful.
 */
-class Spaceship { //extends Mover  
+class Spaceship extends Mover { 
   //your code here
-  class Spaceship{
-  
-  }
+   Spaceship(float x, float y) {
+      //The line below shows how we can 
+      //link this constructor to the constructor below through "this"
+      super(x, y);
+    }
+    
+     Spaceship(float x, float y, float speed, float direction) {
+      this.x = x;
+      this.y = y;
+      this.speed = speed;
+      this.direction = direction;
+      myColor = 225;
+      radius = 0.0;
+    }
   
   void show(){
   
