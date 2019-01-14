@@ -50,6 +50,11 @@ public void draw() {
     stars[i].show();
   }
   
+  player1 = new Spaceship(1500,1000);
+  player1.show();
+  
+   
+  
   //Check bullet collisions
   //TODO: Part III or IV - for not just leave this comment
 
@@ -62,7 +67,7 @@ public void draw() {
   //TODO: Part II
 
   //Update spaceship
-  //TODO: Part I
+   
   
   //Check for ship collision agaist asteroids
   //TODO: Part II or III
