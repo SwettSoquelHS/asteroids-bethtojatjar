@@ -149,5 +149,3 @@ abstract class Mover implements Movable {
       speed = newSpeed;
     }
   }
-
-  //TODO: Part I: implement the methods of Moveable interface - delete this comment

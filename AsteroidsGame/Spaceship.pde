@@ -24,31 +24,13 @@ class Spaceship extends Mover {
 
 
   void show() {
-
-    if (ROTATELEFT) {
-      direction -= 1.0;
-    } else if (ROTATERIGHT) {
-      direction += 1.0;
-    }
-
-    if (MOVEFORWARD == true) {
-      if (speed < 3) {
-        speed += .03;
-      }
-    } else {
-      if (speed > 0) {
-        speed -= 0.5;
-      }
-      if (speed < 0) {
-        speed = 0;
-      }
-    }
-
     smooth();
 
     //beginning of the wings
 
     pushMatrix();
+    translate(x, y);
+    rotate(radians(direction));
     fill(#6D4F81);
     beginShape();
     vertex(33, 60);
@@ -58,9 +40,9 @@ class Spaceship extends Mover {
     endShape();
     fill(#832253);
     ellipse(-8, 90, 10, 35);
-    popMatrix();
 
-    pushMatrix();
+
+
     fill(#6D4F81);
     beginShape();
     vertex(70, 60);
@@ -70,14 +52,13 @@ class Spaceship extends Mover {
     endShape();
     fill(#832253);
     ellipse(130, 90, 10, 35);
-    popMatrix();
 
 
 
     //end of wings
     //main white part of the ship
 
-    pushMatrix();
+
     noFill();
     beginShape();
     vertex(55.5, -20);
@@ -86,9 +67,9 @@ class Spaceship extends Mover {
     bezierVertex(37, 90, 15, 5, 55.5, -20);
     fill(255);
     endShape();
-    popMatrix();
 
-    pushMatrix();
+
+
     beginShape();
     vertex(55.5, 0);
     bezierVertex(55.5, 0, 47.5, -10, 39, 0 );
@@ -97,18 +78,18 @@ class Spaceship extends Mover {
     bezierVertex(75, 0, 63.5, -10, 55.5, 0);
     fill(#41CE60);
     endShape();
-    popMatrix();
+
 
     //end of the main part of the ship
     //beginning of the cockpit
 
-    pushMatrix();
+
     beginShape();
     line(69, 90, 45, 90);
     vertex(69, 90);
     fill(#EAEAEA);
     bezierVertex(69, 90, 57, 0, 45, 90);
-    endShape();
+
 
     fill(#A5E3D7);
     arc(55.5, 70, 15, 15, radians(180), radians(360), CHORD);
@@ -118,7 +99,20 @@ class Spaceship extends Mover {
 
     //end of cockpit
   }
-  
-  
 
+  void rotateShip(float degrees) {
+    direction += degrees;
+  } 
+
+  void accelShip(float amount) {
+    speed += amount;
+
+    if (speed > 2) {
+      speed = 2;
+    }
+
+    if (MOVE_FORWARD == false){
+      speed -= .5;
+    }
+  }
 }
