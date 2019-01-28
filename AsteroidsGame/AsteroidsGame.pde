@@ -55,11 +55,11 @@ public void draw() {
     player1.rotateShip(.5);
   } else if (ROTATE_RIGHT) {
     player1.rotateShip(-.5);
-  } else if (MOVE_FORWARD == true) {
+  } else if (MOVE_FORWARD) {
     player1.accelShip(.5);
   }
   
-
+  player1.update();
 
   //Check bullet collisions
   //TODO: Part III or IV - for not just leave this comment

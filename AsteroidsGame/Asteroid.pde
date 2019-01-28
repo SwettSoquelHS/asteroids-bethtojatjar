@@ -20,5 +20,8 @@ class Asteroid extends Mover {
     myColor = 225;
     radius = 0.0;
   }
+  
+  void show(){
+  }
 }
 */

@@ -106,13 +106,17 @@ class Spaceship extends Mover {
 
   void accelShip(float amount) {
     speed += amount;
-
-    if (speed > 2) {
-      speed = 2;
-    }
-
-    if (MOVE_FORWARD == false){
-      speed -= .5;
+    if (MOVEFORWARD) {
+      if (speed < 3) {
+        speed += .03;
+      }
+    } else {
+      if (speed > 0) {
+        speed -= 0.5;
+      }
+      if (speed < 0) {
+        speed = 0;
+      }
     }
   }
 }
