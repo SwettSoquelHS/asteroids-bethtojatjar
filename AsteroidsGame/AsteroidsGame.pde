@@ -4,7 +4,7 @@ Star[] stars;
 Spaceship player1;
 //Asteroid[] asteroids;
 Star[] starField;
-
+Asteroid[] asters;
 
 /*
   Track User keyboard input
@@ -25,6 +25,8 @@ public void setup() {
   //initialize your asteroid array and fill it
 
   player1 = new Spaceship(width/2, height/2, 1, 0);
+  
+ 
 
   stars = new Star[100];
   for (int i = 0; i < stars.length; i++) {
@@ -49,17 +51,10 @@ public void draw() {
     stars[i].show();
   }
 
-  player1.show();
-
-  if (ROTATE_LEFT) {
-    player1.rotateShip(.5);
-  } else if (ROTATE_RIGHT) {
-    player1.rotateShip(-.5);
-  } else if (MOVE_FORWARD) {
-    player1.accelShip(.5);
-  }
-  
+   
+  player1.rotateShip();
   player1.update();
+  player1.show();
 
   //Check bullet collisions
   //TODO: Part III or IV - for not just leave this comment

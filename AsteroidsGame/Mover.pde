@@ -63,89 +63,92 @@ interface Movable {
  */
 abstract class Mover implements Movable {
 
-    protected float x, y;
-    protected float speed;
-    protected float direction;
-    protected int myColor;
-    protected float radius;  
+  protected float x, y;
+  protected float speed;
+  protected float direction;
+  protected int myColor;
+  protected float radius;  
 
-    /*
+  /*
     Default Mover, not actually moving and directionless
-     */
-    Mover(float x, float y) {
-      //The line below shows how we can 
-      //link this constructor to the constructor below through "this"
-      this(x, y, 0, 0);
-    }
-    Mover(){
+   */
+  Mover(float x, float y) {
+    //The line below shows how we can 
+    //link this constructor to the constructor below through "this"
+    this(x, y, 0, 0);
+  }
+  Mover() {
     super();
-    }
-    /*
+  }
+  /*
     Mover constructor specifying x, y position along with its speed and
-     direction (in degrees)
-     */
-    Mover(float x, float y, float speed, float direction) {
-      this.x = x;
-      this.y = y;
-      this.speed = speed;
-      this.direction = direction;
-      myColor = 225;
-      radius = 0.0;
-    }
+   direction (in degrees)
+   */
+  Mover(float x, float y, float speed, float direction) {
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
+    this.direction = direction;
+    myColor = 225;
+    radius = 0.0;
+  }
 
-    /*
+  /*
     Most of your movable objects should follow this pattern.
-     */
-    void update() {
-      x = x + speed*(float)Math.cos(radians(direction));
-      y = y + speed*(float)Math.sin(radians(direction));
+   */
+  void update() {
+    x = x + speed*(float)Math.cos(radians(direction));
+    y = y + speed*(float)Math.sin(radians(direction));
 
-      //todo: You need to decide what to do when X is less than 0 or greater than width
-      //todo: You need to decide what to do when Y is less than 0 or greater than height
-    }
-
-
-
-    /*
-    Save this for your subclasses to override.
-     but notice how it is tagged with abstract, meaning 
-     it is incomplete. (It's like an I.O.U.)
-     */
-    abstract void show();
-
-
-    /*
-    TODO: Part 4: Implement collision detection
-     */
-    boolean collidingWith(Movable object) {
-      return false;
-    }
-
-    float getX() {
-      return x;
-    }
-
-    float getY() {
-      return y;
-    }
-
-    float getDirection() {
-      return direction;
-    }
-
-    float getSpeed() {
-      return speed;
-    }
-
-    float getRadius() {
-      return radius;
-    }
-
-    void setDirection(float newDir) {
-      direction = newDir;
-    }
-
-    void setSpeed(float newSpeed) {
-      speed = newSpeed;
+    if (x >= 1500) {
+      x -= .5;
+    } else if (x <= 0) {
+      x += .5;
     }
   }
+
+
+
+  /*
+    Save this for your subclasses to override.
+   but notice how it is tagged with abstract, meaning 
+   it is incomplete. (It's like an I.O.U.)
+   */
+  abstract void show();
+
+
+  /*
+    TODO: Part 4: Implement collision detection
+   */
+  boolean collidingWith(Movable object) {
+    return false;
+  }
+
+  float getX() {
+    return x;
+  }
+
+  float getY() {
+    return y;
+  }
+
+  float getDirection() {
+    return direction;
+  }
+
+  float getSpeed() {
+    return speed;
+  }
+
+  float getRadius() {
+    return radius;
+  }
+
+  void setDirection(float newDir) {
+    direction = newDir;
+  }
+
+  void setSpeed(float newSpeed) {
+    speed = newSpeed;
+  }
+}

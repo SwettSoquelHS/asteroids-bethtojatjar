@@ -100,13 +100,14 @@ class Spaceship extends Mover {
     //end of cockpit
   }
 
-  void rotateShip(float degrees) {
-    direction += degrees;
-  } 
+  void rotateShip() {
+    if (ROTATE_LEFT){
+      direction -= 1;
+    }  else if (ROTATE_RIGHT){
+      direction += 1;
+    }
 
-  void accelShip(float amount) {
-    speed += amount;
-    if (MOVEFORWARD) {
+    if (MOVEFORWARD == true) {
       if (speed < 3) {
         speed += .03;
       }

@@ -4,7 +4,7 @@
  
  Initially, your asteroid may just be a simple circle or square
  but the final program should use "beginShape(), vertex(), and endShape()"
- to render the asteroid.
+ to render the asteroid. */
 
 class Asteroid extends Mover {   
 
@@ -22,6 +22,16 @@ class Asteroid extends Mover {
   }
   
   void show(){
+    pushMatrix();
+    translate (x_pos, y_pos);
+    rotate(radians(direction));
+    quad(38, 31, 86, 20, 69, 63, 30, 76);
+    fill(#7E4D3C);
+    beginShape();
+    
+    endShape();
+    
+    popMatrix();
+    
   }
 }
-*/
