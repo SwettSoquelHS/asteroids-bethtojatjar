@@ -30,7 +30,7 @@ class Spaceship extends Mover {
 
     pushMatrix();
     translate(x, y);
-    rotate(radians(direction));
+    rotate(radians(direction+90));
     fill(#6D4F81);
     beginShape();
     vertex(33, 60);
@@ -105,19 +105,18 @@ class Spaceship extends Mover {
       direction -= 1;
     }  else if (ROTATE_RIGHT){
       direction += 1;
+      }
     }
-
-    if (MOVEFORWARD == true) {
+    
+    void accelShip(double speedMore){
+    
       if (speed < 3) {
-        speed += .03;
+        speed += speedMore;
       }
-    } else {
-      if (speed > 0) {
-        speed -= 0.5;
-      }
+
+  
       if (speed < 0) {
         speed = 0;
       }
-    }
   }
 }

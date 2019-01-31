@@ -23,14 +23,20 @@ class Asteroid extends Mover {
   
   void show(){
     pushMatrix();
-    translate (x_pos, y_pos);
+    translate (x, y);
     rotate(radians(direction));
-    quad(38, 31, 86, 20, 69, 63, 30, 76);
-    fill(#7E4D3C);
+    fill(#4D6226);
     beginShape();
-    
+    vertex(0,0);
+    vertex(10,-5);
+    vertex(20,-10);
+    vertex(15,-20);
+    vertex(0,-25);
+    vertex(-10,-25);
+    vertex(-15,-15);
+    vertex(-20,-5);
+    vertex(-10,5);
     endShape();
-    
     popMatrix();
     
   }

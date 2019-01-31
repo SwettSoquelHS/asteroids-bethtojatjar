@@ -100,10 +100,16 @@ abstract class Mover implements Movable {
     x = x + speed*(float)Math.cos(radians(direction));
     y = y + speed*(float)Math.sin(radians(direction));
 
-    if (x >= 1500) {
-      x -= .5;
-    } else if (x <= 0) {
-      x += .5;
+    if (x >= width + 50) {
+      x = -20;
+    } else if (x <= -50) {
+      x = width + 50;
+    }
+
+    if (y >= height + 50) {
+      y = -50;
+    } else if (y <= -50) {
+      y = height + 50;
     }
   }
 
