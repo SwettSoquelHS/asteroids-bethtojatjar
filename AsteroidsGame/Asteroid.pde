@@ -7,7 +7,7 @@
  to render the asteroid. */
 
 class Asteroid extends Mover {   
-
+    
   Asteroid(float x, float y) {
     super(x, y);
   }
@@ -21,23 +21,28 @@ class Asteroid extends Mover {
     radius = 0.0;
   }
   
+  private float spin = ((float)(4 * Math.random()) + 2);
+  
   void show(){
+    spin += .4;
     pushMatrix();
     translate (x, y);
-    rotate(radians(direction));
+    rotate(radians(spin));
     fill(#4D6226);
     beginShape();
     vertex(0,0);
-    vertex(10,-5);
-    vertex(20,-10);
-    vertex(15,-20);
-    vertex(0,-25);
-    vertex(-10,-25);
-    vertex(-15,-15);
-    vertex(-20,-5);
-    vertex(-10,5);
+    vertex(15,90);
+    vertex(30,75);
+    vertex(45,50);
+    vertex(50,35);
+    vertex(35,-20);
+    vertex(16,-40);
+    vertex(5,-10);
+    vertex(0,-10);
+    vertex(0,0);
     endShape();
     popMatrix();
     
   }
+  
 }

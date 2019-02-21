@@ -113,7 +113,6 @@ class Spaceship extends Mover {
       if (speed < 3) {
         speed += speedMore;
       }
-
   
       if (speed < 0) {
         speed = 0;

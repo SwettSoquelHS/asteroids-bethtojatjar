@@ -74,7 +74,7 @@ public void draw() {
   }
   
   if(!MOVE_FORWARD){
-    player1.accelShip(-1);
+    player1.accelShip(-2);
   }
   
 
