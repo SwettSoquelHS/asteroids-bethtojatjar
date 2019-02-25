@@ -12,19 +12,20 @@ class Asteroid extends Mover {
     super(x, y);
   }
 
-  Asteroid(float x, float y, float speed, float direction) {
+  Asteroid(float x, float y, float speed, float direction, float spin) {
     this.x = x;
     this.y = y;
     this.speed = speed;
     this.direction = direction;
+    this.spin = spin;
     myColor = 225;
     radius = 0.0;
   }
   
-  private float spin = ((float)(4 * Math.random()) + 2);
+  
   
   void show(){
-    spin += .4;
+    spin += .5;
     pushMatrix();
     translate (x, y);
     rotate(radians(spin));

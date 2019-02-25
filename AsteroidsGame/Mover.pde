@@ -67,7 +67,8 @@ abstract class Mover implements Movable {
   protected float speed;
   protected float direction;
   protected int myColor;
-  protected float radius;  
+  protected float radius;
+  protected float spin;
 
   /*
     Default Mover, not actually moving and directionless
@@ -75,7 +76,7 @@ abstract class Mover implements Movable {
   Mover(float x, float y) {
     //The line below shows how we can 
     //link this constructor to the constructor below through "this"
-    this(x, y, 0, 0);
+    this(x, y, 0, 0, .4);
   }
   Mover() {
     super();
@@ -84,11 +85,12 @@ abstract class Mover implements Movable {
     Mover constructor specifying x, y position along with its speed and
    direction (in degrees)
    */
-  Mover(float x, float y, float speed, float direction) {
+  Mover(float x, float y, float speed, float direction,  float spin) {
     this.x = x;
     this.y = y;
     this.speed = speed;
     this.direction = direction;
+    this.spin = spin;
     myColor = 225;
     radius = 0.0;
   }
@@ -99,6 +101,7 @@ abstract class Mover implements Movable {
   void update() {
     x = x + speed*(float)Math.cos(radians(direction));
     y = y + speed*(float)Math.sin(radians(direction));
+    spin = spin + (float)Math.sin(radians(direction));
 
     if (x >= width + 50) {
       x = -20;
@@ -126,9 +129,21 @@ abstract class Mover implements Movable {
   /*
     TODO: Part 4: Implement collision detection
    */
-  boolean collidingWith(Movable object) {
+  boolean collidingWith(Movable m) {
+    //Can't collide with yourself
+    if (this == m) {
+      return false;
+    }
+    
+    //How far away are OUR centers
+    float d = dist(x, y, m.getX(), m.getY());    
+    
+    //If both of our radi added are greater than or equal to d, then we have collided
+    if ((radius + m.getRadius()) >= d) {
+     return true;  
+    }
     return false;
-  }
+ }
 
   float getX() {
     return x;

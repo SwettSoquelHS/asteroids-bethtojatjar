@@ -42,7 +42,8 @@ public void setup() {
     float y = (float)(height * Math.random());
     float speed = (float)(2 * Math.random());
     float direction = (float)(360 * Math.random());
-    asters[i] = new Asteroid(x, y, speed, direction);
+    float spin = (float)(5 * Math.random());
+    asters[i] = new Asteroid(x, y, speed, direction,spin);
   }
 }
 
@@ -58,8 +59,6 @@ public void draw() {
   for (int i = 0; i < stars.length; i++) {
     stars[i].show();
   }
-
-
 
   if (ROTATE_LEFT) {
     player1.rotateShip();
@@ -77,6 +76,8 @@ public void draw() {
     player1.accelShip(-2);
   }
   
+  
+  
 
   player1.update();
   player1.show();
@@ -84,10 +85,13 @@ public void draw() {
   //Check bullet collisions
   //TODO: Part III or IV - for not just leave this comment
 
-  //TODO: Part II, Update each of the Asteroids internals
 
   //Check for asteroid collisions against other asteroids and alter course
-  //TODO: Part III, for now keep this comment in place
+  if(int i = 0; i < asters,length;i++){
+    if(int j = 0;j < asters.length; i++){
+     
+      }
+    }
 
   //Draw asteroids
   for (int i = 0; i < asters.length; i++) {
