@@ -76,7 +76,7 @@ abstract class Mover implements Movable {
   Mover(float x, float y) {
     //The line below shows how we can 
     //link this constructor to the constructor below through "this"
-    this(x, y, 0, 0, .4);
+    this(x, y, 0, 0, 0,50);
   }
   Mover() {
     super();
@@ -85,14 +85,14 @@ abstract class Mover implements Movable {
     Mover constructor specifying x, y position along with its speed and
    direction (in degrees)
    */
-  Mover(float x, float y, float speed, float direction,  float spin) {
+  Mover(float x, float y, float speed, float direction,  float spin, float radius) {
     this.x = x;
     this.y = y;
     this.speed = speed;
     this.direction = direction;
     this.spin = spin;
+    this.radius = radius;
     myColor = 225;
-    radius = 0.0;
   }
 
   /*
@@ -137,7 +137,7 @@ abstract class Mover implements Movable {
     float d = dist(x, y, m.getX(), m.getY());    
     
     //If both of our radi added are greater than or equal to d, then we have collided
-    if ((radius + m.getRadius()) >= d) {
+    if (d < (radius + m.getRadius()) ) {
      return true;  
     }
     return false;

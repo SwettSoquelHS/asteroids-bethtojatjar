@@ -21,10 +21,15 @@ class Spaceship extends Mover {
     radius = 0.0;
   }
 
-
+  void fireBullet(){
+    
+  }
 
   void show() {
     smooth();
+
+    //todo - loop through bullets and show each bullet
+    // also, in update, loop through bullets and update
 
     //beginning of the wings
 

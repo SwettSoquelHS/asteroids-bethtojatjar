@@ -12,14 +12,14 @@ class Asteroid extends Mover {
     super(x, y);
   }
 
-  Asteroid(float x, float y, float speed, float direction, float spin) {
+  Asteroid(float x, float y, float speed, float direction, float spin, float radius) {
     this.x = x;
     this.y = y;
     this.speed = speed;
     this.direction = direction;
     this.spin = spin;
+    this.radius = radius;
     myColor = 225;
-    radius = 0.0;
   }
   
   
@@ -28,20 +28,22 @@ class Asteroid extends Mover {
     spin += .5;
     pushMatrix();
     translate (x, y);
+    
+    ellipse(0,0,radius, radius);
+    
     rotate(radians(spin));
     fill(#4D6226);
     beginShape();
     vertex(0,0);
-    vertex(15,90);
-    vertex(30,75);
-    vertex(45,50);
-    vertex(50,35);
-    vertex(35,-20);
-    vertex(16,-40);
-    vertex(5,-10);
-    vertex(0,-10);
+    vertex(20,0);
+    vertex(25,-10);
+    vertex(32,-20);
+    vertex(22,-30);
+    vertex(-10,-18);
+    vertex(-10,-8);
     vertex(0,0);
     endShape();
+    
     popMatrix();
     
   }

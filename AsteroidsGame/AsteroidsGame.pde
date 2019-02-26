@@ -43,7 +43,7 @@ public void setup() {
     float speed = (float)(2 * Math.random());
     float direction = (float)(360 * Math.random());
     float spin = (float)(5 * Math.random());
-    asters[i] = new Asteroid(x, y, speed, direction,spin);
+    asters[i] = new Asteroid(x, y, speed, direction,spin,50);
   }
 }
 
@@ -88,12 +88,12 @@ public void draw() {
 
   //Check for asteroid collisions against other asteroids and alter course
   for(int i = 0; i < asters.length; i++){
-    for (int j = 0; i < asters.length;i++){
-      float astersIDirection = asters[i].getDirection();
-      float astersJDirection = asters[j].getDirection();
-        if (asters[i].collidingWith(asters[j])){
-            asters[i].setDirection(-astersIDirection);
-            asters[j].setDirection(-astersJDirection);
+      Asteroid AsteroidI = asters[i];
+    for (int j = 0; j < asters.length;j++){
+      Asteroid AsteroidJ = asters[j];
+        if (AsteroidI != AsteroidJ && AsteroidI.collidingWith(AsteroidJ)){
+            AsteroidI.setDirection((float)(360*Math.random()));
+            //AsteroidJ.setDirection(+15);
         }
     }
   }
