@@ -126,9 +126,7 @@ abstract class Mover implements Movable {
   abstract void show();
 
 
-  /*
-    TODO: Part 4: Implement collision detection
-   */
+  
   boolean collidingWith(Movable m) {
     //Can't collide with yourself
     if (this == m) {

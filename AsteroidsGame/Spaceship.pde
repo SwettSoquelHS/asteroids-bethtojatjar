@@ -104,7 +104,7 @@ class Spaceship extends Mover {
     if (ROTATE_LEFT){
       direction -= 1;
     }  else if (ROTATE_RIGHT){
-      direction += 1;
+      direction += 2;
       }
     }
     

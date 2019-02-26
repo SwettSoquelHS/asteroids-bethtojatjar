@@ -87,11 +87,16 @@ public void draw() {
 
 
   //Check for asteroid collisions against other asteroids and alter course
-  if(int i = 0; i < asters,length;i++){
-    if(int j = 0;j < asters.length; i++){
-     
-      }
+  for(int i = 0; i < asters.length; i++){
+    for (int j = 0; i < asters.length;i++){
+      float astersIDirection = asters[i].getDirection();
+      float astersJDirection = asters[j].getDirection();
+        if (asters[i].collidingWith(asters[j])){
+            asters[i].setDirection(-astersIDirection);
+            asters[j].setDirection(-astersJDirection);
+        }
     }
+  }
 
   //Draw asteroids
   for (int i = 0; i < asters.length; i++) {
