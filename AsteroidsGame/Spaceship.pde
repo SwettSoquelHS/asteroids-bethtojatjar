@@ -7,6 +7,7 @@
 class Spaceship extends Mover { 
   boolean ROTATELEFT, ROTATERIGHT;
   boolean MOVEFORWARD;
+  Bullet myBullet;
 
   Spaceship(float x, float y) {
     super(x, y);
@@ -21,9 +22,11 @@ class Spaceship extends Mover {
     radius = 0.0;
   }
 
-  void fireBullet(){
-    
+  void fire(){
+  if(myByllet != null && !myBullet.isAlive()){
+   myBullet = new Bullet(); //Make sure you have declared a Bullet myBullet for the spaceship
   }
+ }
 
   void show() {
     smooth();

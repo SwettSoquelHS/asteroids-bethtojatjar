@@ -94,6 +94,13 @@ abstract class Mover implements Movable {
     this.radius = radius;
     myColor = 225;
   }
+  
+  Mover(float x, float y, float speed, float direction){
+  this.x = x;
+  this.y = y;
+  this.speed = speed;
+  this.direction = direction;
+  }
 
   /*
     Most of your movable objects should follow this pattern.
