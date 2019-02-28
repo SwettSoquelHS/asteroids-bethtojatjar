@@ -43,7 +43,9 @@ public void setup() {
     float speed = (float)(2 * Math.random());
     float direction = (float)(360 * Math.random());
     float spin = (float)(5 * Math.random());
-    asters[i] = new Asteroid(x, y, speed, direction,spin,50);
+    int size = (int)(3 * Math.random() + 1);
+    float radius = 35;
+    asters[i] = new Asteroid(x, y, speed, direction,spin,radius,size);
   }
 }
 
@@ -92,7 +94,7 @@ public void draw() {
     for (int j = 0; j < asters.length;j++){
       Asteroid AsteroidJ = asters[j];
         if (AsteroidI != AsteroidJ && AsteroidI.collidingWith(AsteroidJ)){
-            AsteroidI.setDirection((float)(360*Math.random()));
+            AsteroidI.direction = AsteroidI.direction + ((float)(360*Math.random()+ 1));
             //AsteroidJ.setDirection(+15);
         }
     }

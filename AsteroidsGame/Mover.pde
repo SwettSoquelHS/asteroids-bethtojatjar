@@ -69,6 +69,7 @@ abstract class Mover implements Movable {
   protected int myColor;
   protected float radius;
   protected float spin;
+  protected int size;
 
   /*
     Default Mover, not actually moving and directionless
@@ -76,7 +77,7 @@ abstract class Mover implements Movable {
   Mover(float x, float y) {
     //The line below shows how we can 
     //link this constructor to the constructor below through "this"
-    this(x, y, 0, 0, 0,50);
+    this(x, y, 0, 0, 0,35,0);
   }
   Mover() {
     super();
@@ -85,7 +86,7 @@ abstract class Mover implements Movable {
     Mover constructor specifying x, y position along with its speed and
    direction (in degrees)
    */
-  Mover(float x, float y, float speed, float direction,  float spin, float radius) {
+  Mover(float x, float y, float speed, float direction,  float spin, float radius, int size) {
     this.x = x;
     this.y = y;
     this.speed = speed;
@@ -93,6 +94,7 @@ abstract class Mover implements Movable {
     this.spin = spin;
     this.radius = radius;
     myColor = 225;
+    this.size = size;
   }
   
   Mover(float x, float y, float speed, float direction){

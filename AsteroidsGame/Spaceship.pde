@@ -8,6 +8,7 @@ class Spaceship extends Mover {
   boolean ROTATELEFT, ROTATERIGHT;
   boolean MOVEFORWARD;
   Bullet myBullet;
+  ArrayList[] bullets;
 
   Spaceship(float x, float y) {
     super(x, y);
@@ -20,13 +21,16 @@ class Spaceship extends Mover {
     this.direction = direction;
     myColor = 225;
     radius = 0.0;
+    ;
   }
 
-  void fire(){
-  if(myByllet != null && !myBullet.isAlive()){
-   myBullet = new Bullet(); //Make sure you have declared a Bullet myBullet for the spaceship
+  void fire() {
+    if (myBullet != null && myBullet.isAlive()) {
+      myBullet = new Bullet(x, y, speed * 1.5, direction); //Make sure you have declared a Bullet myBullet for the spaceship
+    }
   }
- }
+
+
 
   void show() {
     smooth();
@@ -106,24 +110,31 @@ class Spaceship extends Mover {
     popMatrix();
 
     //end of cockpit
+
+    //bullet 
+    if(SPACE_BAR){
+      myBullet.show();
+      myBullet.update();
+    }
   }
 
+
   void rotateShip() {
-    if (ROTATE_LEFT){
+    if (ROTATE_LEFT) {
       direction -= 1;
-    }  else if (ROTATE_RIGHT){
+    } else if (ROTATE_RIGHT) {
       direction += 2;
-      }
     }
-    
-    void accelShip(double speedMore){
-    
-      if (speed < 3) {
-        speed += speedMore;
-      }
-  
-      if (speed < 0) {
-        speed = 0;
-      }
+  }
+
+  void accelShip(double speedMore) {
+
+    if (speed < 3) {
+      speed += speedMore;
+    }
+
+    if (speed < 0) {
+      speed = 0;
+    }
   }
 }
